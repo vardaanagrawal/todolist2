@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { v4 } = require('uuid');
+const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -66,4 +67,23 @@ app.delete('/deleteItem/:item',async (req,res) => {
 })
 
 
-app.listen(4000,()=>{console.log('server running on port 4000');})
+
+__dirname = path.resolve();
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname,'/frontend/build')));
+
+  app.get('*',(req,res) => {
+    res.sendFile(path.resolve(__dirname,'frontend','build','index.html'));
+  })
+}
+else{
+  app.get('/',(req,res)=>{
+    res.send("Api running");
+  })
+}
+
+
+app.listen(process.env.PORT, function () {
+    console.log("Express is running on port: "+ process.env.PORT);
+  });
+  

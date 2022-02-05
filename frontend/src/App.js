@@ -14,14 +14,14 @@ export default function App() {
   }, []);
 
   async function getList() {
-    const res = await axios.get("http://localhost:4000/getItem");
+    const res = await axios.get("/getItem");
     setList(res.data.list);
   }
 
   const addItem = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:4000/addItem", {
+      .post("/addItem", {
         title: title,
         description: description,
       })
@@ -35,7 +35,7 @@ export default function App() {
 
   async function deleteItem(item) {
     await axios
-      .delete("http://localhost:4000/deleteItem/" + item.id)
+      .delete("/deleteItem/" + item.id)
       .then((res) => {
         alert(res.data.message);
         getList();
@@ -45,7 +45,7 @@ export default function App() {
   async function updateItem(e) {
     e.preventDefault();
     await axios
-      .put("http://localhost:4000/updateItem", {
+      .put("/updateItem", {
         id: updateid,
         title: title,
         description: description,
