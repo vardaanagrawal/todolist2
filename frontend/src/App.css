@@ -1,0 +1,87 @@
+.App{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(azure,lavender);
+  text-align: center;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  width: 250px;
+}
+
+input{
+  height: 30px;
+  width: 100%;
+  background: none;
+  text-align: center;
+  border:none;
+  border-bottom: rgb(92, 43, 226) 4px solid;
+  border-radius: 30px;
+  font-size: large;
+}
+
+#form_btn{
+  width: 100px;
+  background-color: rgb(61, 43, 226);
+  font-size: large;
+  font-weight: bold;
+  color: aliceblue;
+  border: none;
+  margin-top: 10px;
+}
+#form_btn:hover{
+  box-shadow: rgba(0, 0, 0, 0.308) 1px 1px 10px 1px;
+}
+
+.output{
+  height: 300px;
+  width: 500px;
+  margin: 50px;
+  overflow: scroll;
+  box-shadow: silver 1px 1px 5px 1px;
+}
+
+table{
+  width: 100%;
+  text-align: center;
+}
+thead{
+  background-color: darkslategray;
+  color: white;
+}
+th,td{
+  border: solid black 1px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.actionbtn{
+  height: 100%;
+  width: 30px;
+  border-radius: 30%;
+  margin: 5px;
+  background: none;
+  border: none;
+}
+
+.actionbtn:hover{
+  box-shadow: black 1px 1px 4px 1px;
+}
+
+@media only screen and (max-width: 500px){
+  .output{
+    width: 100%;
+  }
+}
